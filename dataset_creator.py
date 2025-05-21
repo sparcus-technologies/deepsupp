@@ -1,20 +1,6 @@
 import numpy as np
 import pandas as pd
 
-"""
-# List of support functions to use
-support_functions = [
-    (quantile_regression_support, "quantile_regression"),
-    (hmm_support_levels, "hmm"),
-]
-
-# Create datasets using all support functions
-calculate_and_save_support_levels(
-    support_functions=support_functions,
-    period_years=2,
-)
-"""
-
 
 def calculate_and_save_support_levels(
     support_functions,
