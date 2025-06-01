@@ -253,7 +253,7 @@ class SupportLevelEvaluator:
         report.append("-" * 40)
         
         for i, row in results_df.iterrows():
-            rank = len(results_df) - list(results_df.index).index(i)
+            rank = list(results_df.index).index(i)+1
             report.append(f"{rank}. {row['method'].upper()}")
             report.append(f"   Overall Score: {row['avg_overall_score']:.3f} (±{row['std_overall_score']:.3f})")
             report.append(f"   Support Accuracy: {row['avg_support_accuracy']:.3f}")

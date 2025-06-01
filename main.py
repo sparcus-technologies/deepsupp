@@ -26,7 +26,7 @@ if __name__ == "__main__":
         (hmm_support_levels, "hmm"),
         (local_minima_support, "local_minima"),
         (moving_average_support, "moving_average"),
-        (percentile_support, "percentile"),
+        # (percentile_support, "percentile"),
         (fibonacci_support, "fibonacci"),
         (fractal_support, "fractal"),
         (deepsupp, "deepsupp"),
