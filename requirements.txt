@@ -4,3 +4,4 @@ yfinance
 curl_cffi
 hmmlearn
 statsmodels
+tensorflow
