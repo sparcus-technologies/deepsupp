@@ -74,5 +74,5 @@ def make_figures():
 
 if __name__ == "__main__":
     # make_dataset()
-    make_support_levels()
-    # make_figures()
+    # make_support_levels()
+    make_figures()

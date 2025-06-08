@@ -1,5 +1,5 @@
-import os
 import glob
+import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -24,7 +24,9 @@ def load_support_levels(method):
 def get_available_methods():
     """Discover available prediction methods by scanning the predictions directory."""
     prediction_files = glob.glob("predictions/*_support_levels.csv")
-    methods = [os.path.basename(f).replace("_support_levels.csv", "") for f in prediction_files]
+    methods = [
+        os.path.basename(f).replace("_support_levels.csv", "") for f in prediction_files
+    ]
     if not methods:
         print("Warning: No prediction methods found in the predictions directory.")
     return methods
@@ -44,9 +46,11 @@ def visualize_support_levels(ticker="AAPL", fig_dir="figures"):
 
     # Dynamically get available methods from predictions directory
     methods = get_available_methods()
-    
+
     if not methods:
-        raise ValueError("No prediction methods found. Please ensure prediction files exist in the 'predictions/' directory.")
+        raise ValueError(
+            "No prediction methods found. Please ensure prediction files exist in the 'predictions/' directory."
+        )
 
     # Load historical price data
     historical_prices = load_historical_prices("datasets/sp500_filtered_prices.csv")
