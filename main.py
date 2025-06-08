@@ -2,6 +2,7 @@ import os
 
 from src.data_fetcher import fetch_and_save_historical_prices
 from src.figures import create_research_figures
+from src.figures.visualize_support_levels import visualize_support_levels
 from src.predict_support_levels import predict_support_levels
 from src.support_methods.deepsupp import deepsupp
 from src.support_methods.fibonacci import fibonacci_support
@@ -38,8 +39,15 @@ def make_support_levels():
 
 
 def make_figures():
+    fig_dir = "figures"
+
     # Create output directory for figures
-    os.makedirs("output/figures", exist_ok=True)
+    os.makedirs(fig_dir, exist_ok=True)
+
+    print("Generating research paper figures...")
+
+    # Generate support level visualization
+    visualize_support_levels(fig_dir=fig_dir)
 
     # Create research figures
     create_research_figures()
