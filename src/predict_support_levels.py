@@ -2,10 +2,10 @@ import numpy as np
 import pandas as pd
 
 
-def calculate_and_save_support_levels(
+def predict_support_levels(
     support_functions,
     historical_prices_csv="datasets/sp500_historial_prices.csv",
-    output_dir="datasets",
+    output_dir="predictions",
 ):
 
     historical_prices_df = pd.read_csv(historical_prices_csv)
@@ -15,6 +15,8 @@ def calculate_and_save_support_levels(
     num_levels = 7
 
     for support_function, function_name in support_functions:
+
+        print(f"Predicting support levels using {function_name}...")
 
         # Create a dataframe to store results for this support function
         results_df = pd.DataFrame(
