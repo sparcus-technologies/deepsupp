@@ -25,7 +25,7 @@ def make_support_levels():
 
     # List of support functions to use
     support_functions = [
-        (deepsupp, "deepsupp"),
+        # (deepsupp, "deepsupp"),
         (fibonacci_support, "fibonacci"),
         (fractal_support, "fractal"),
         (hmm_support_levels, "hmm"),
@@ -47,5 +47,5 @@ def make_figures():
 
 if __name__ == "__main__":
     # make_dataset()
-    # make_support_levels()
-    make_figures()
+    make_support_levels()
+    # make_figures()

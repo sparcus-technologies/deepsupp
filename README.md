@@ -4,7 +4,7 @@ This project implements and compares various methods for predicting stock price 
 
 ## Project Structure
 
-- `datasets/` - Contains historical price data
+- `dataset/` - Contains historical price data
 - `predictions/` - Contains support level predictions from different methods
 - `src/` - Source code for the project
 - `figures/` - Generated visualizations

@@ -1,16 +1,34 @@
+from datetime import datetime, timedelta
+
 import numpy as np
 import pandas as pd
 
 
 def predict_support_levels(
     support_functions,
-    historical_prices_csv="datasets/sp500_historial_prices.csv",
+    historical_prices_csv="dataset/sp500_historial_prices.csv",
     output_dir="predictions",
+    date_period_months=6,
 ):
 
     historical_prices_df = pd.read_csv(historical_prices_csv)
+
+    # Convert Date column to datetime
+    historical_prices_df["Date"] = pd.to_datetime(historical_prices_df["Date"])
+
+    # Filter to include only the last n months of data
+    if date_period_months > 0:
+        end_date = historical_prices_df["Date"].max()
+        start_date = end_date - pd.DateOffset(months=date_period_months)
+        historical_prices_df = historical_prices_df[
+            historical_prices_df["Date"] >= start_date
+        ]
+
+    # Store tickers before dropping Date column
+    tickers = [col for col in historical_prices_df.columns if col != "Date"]
+
+    # Drop Date column after filtering
     historical_prices_df.drop(columns=["Date"], inplace=True)
-    tickers = historical_prices_df.columns
 
     num_levels = 7
 
