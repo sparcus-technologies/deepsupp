@@ -32,7 +32,7 @@ def get_available_methods():
     return methods
 
 
-def visualize_support_levels(ticker="AAPL", fig_dir="figures"):
+def visualize_support_levels(ticker="MMM", fig_dir="figures"):
     """
     Visualize stock price with support levels from different prediction methods.
 
@@ -99,17 +99,6 @@ def visualize_support_levels(ticker="AAPL", fig_dir="figures"):
                         y=level, color="red", alpha=0.6, linestyle="--", linewidth=1
                     )
 
-                # Plot a small marker at the right edge of the chart for each level
-                for level in support_levels:
-                    if price_data.index[-1] in price_data.index:
-                        ax.plot(
-                            price_data.index[-1],
-                            level,
-                            "o",
-                            color="red",
-                            markersize=6,
-                            label=f"Support ({level:.2f})",
-                        )
         except Exception as e:
             print(f"Error plotting {method} support levels: {e}")
 

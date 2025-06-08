@@ -26,19 +26,6 @@ def make_dataset():
     os.makedirs("datasets", exist_ok=True)
 
     fetch_and_save_historical_prices(debug=True)
-    make_date_filtered_dataset(date_period_months=6)
-
-
-def filter_prices_by_date(prices_df, date_period_months=6):
-    """
-    Filter the prices DataFrame to only include data from the last n months.
-    """
-    if date_period_months > 0:
-        end_date = prices_df["Date"].max()
-        start_date = end_date - pd.DateOffset(months=date_period_months)
-        prices_df = prices_df[prices_df["Date"] >= start_date]
-
-    return prices_df
 
 
 def make_support_levels():
@@ -48,7 +35,7 @@ def make_support_levels():
 
     # List of support functions to use
     support_functions = [
-        # (deepsupp, "deepsupp"),
+        (deepsupp, "deepsupp"),
         (fibonacci_support, "fibonacci"),
         (fractal_support, "fractal"),
         (hmm_support_levels, "hmm"),
@@ -74,5 +61,6 @@ def make_figures():
 
 if __name__ == "__main__":
     # make_dataset()
+    # make_date_filtered_dataset(date_period_months=6)
     # make_support_levels()
     make_figures()
