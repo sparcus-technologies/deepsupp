@@ -23,15 +23,15 @@ def make_support_levels():
     # Create output directory
     os.makedirs("predictions", exist_ok=True)
 
-    # List of support functions to use - now includes all methods
+    # List of support functions to use
     support_functions = [
-        (quantile_regression_support, "quantile_regression"),
+        (deepsupp, "deepsupp"),
+        (fibonacci_support, "fibonacci"),
+        (fractal_support, "fractal"),
         (hmm_support_levels, "hmm"),
         (local_minima_support, "local_minima"),
         (moving_average_support, "moving_average"),
-        (fibonacci_support, "fibonacci"),
-        (fractal_support, "fractal"),
-        (deepsupp, "deepsupp"),
+        (quantile_regression_support, "quantile_regression"),
     ]
 
     predict_support_levels(support_functions)
