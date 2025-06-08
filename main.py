@@ -1,7 +1,9 @@
 import os
 
-from src.data_fetcher import fetch_and_save_historical_prices
-from src.figures import create_research_figures
+import pandas as pd
+
+from src.data.data_fetcher import fetch_and_save_historical_prices
+from src.data.make_date_filtered_dataset import make_date_filtered_dataset
 from src.figures.visualize_support_levels import visualize_support_levels
 from src.predict_support_levels import predict_support_levels
 from src.support_methods.deepsupp import deepsupp
@@ -14,13 +16,33 @@ from src.support_methods.quantile_regression import quantile_regression_support
 
 
 def make_dataset():
+    """
+    Fetch historical prices for S&P 500 companies and create a dataset.
+    This function fetches data for the last 2 years and saves it to a CSV file.
+    It also creates a date-filtered dataset for the last 6 months.
+    """
+
     # Create dataset folder if it doesn't exist
     os.makedirs("datasets", exist_ok=True)
 
     fetch_and_save_historical_prices(debug=True)
+    make_date_filtered_dataset(date_period_months=6)
+
+
+def filter_prices_by_date(prices_df, date_period_months=6):
+    """
+    Filter the prices DataFrame to only include data from the last n months.
+    """
+    if date_period_months > 0:
+        end_date = prices_df["Date"].max()
+        start_date = end_date - pd.DateOffset(months=date_period_months)
+        prices_df = prices_df[prices_df["Date"] >= start_date]
+
+    return prices_df
 
 
 def make_support_levels():
+
     # Create output directory
     os.makedirs("predictions", exist_ok=True)
 
@@ -48,9 +70,6 @@ def make_figures():
 
     # Generate support level visualization
     visualize_support_levels(fig_dir=fig_dir)
-
-    # Create research figures
-    create_research_figures()
 
 
 if __name__ == "__main__":

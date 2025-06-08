@@ -38,7 +38,7 @@ def fetch_stock_data(ticker, start_date, end_date):
 
 def fetch_and_save_historical_prices(
     period_years=2,
-    output_file="dataset/sp500_historial_prices.csv",
+    output_file="datasets/sp500_historial_prices.csv",
     debug=False,
 ):
     """

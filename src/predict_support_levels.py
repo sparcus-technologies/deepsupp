@@ -6,30 +6,20 @@ import pandas as pd
 
 def predict_support_levels(
     support_functions,
-    historical_prices_csv="dataset/sp500_historial_prices.csv",
+    prices_csv="datasets/sp500_filtered_prices.csv",
     output_dir="predictions",
-    date_period_months=6,
 ):
+    """
+    Predict support levels for S&P 500 stocks using various support functions.
+    """
 
-    historical_prices_df = pd.read_csv(historical_prices_csv)
+    # Load historical prices
+    prices_df = pd.read_csv(prices_csv)
 
-    # Convert Date column to datetime
-    historical_prices_df["Date"] = pd.to_datetime(historical_prices_df["Date"])
+    # Drop Date column
+    prices_df.drop(columns=["Date"], inplace=True)
 
-    # Filter to include only the last n months of data
-    if date_period_months > 0:
-        end_date = historical_prices_df["Date"].max()
-        start_date = end_date - pd.DateOffset(months=date_period_months)
-        historical_prices_df = historical_prices_df[
-            historical_prices_df["Date"] >= start_date
-        ]
-
-    # Store tickers before dropping Date column
-    tickers = [col for col in historical_prices_df.columns if col != "Date"]
-
-    # Drop Date column after filtering
-    historical_prices_df.drop(columns=["Date"], inplace=True)
-
+    tickers = [col for col in prices_df.columns]
     num_levels = 7
 
     for support_function, function_name in support_functions:
@@ -43,10 +33,10 @@ def predict_support_levels(
 
         for ticker in tickers:
             # Skip tickers with missing data
-            if historical_prices_df[ticker].isna().any():
+            if prices_df[ticker].isna().any():
                 continue
 
-            prices = historical_prices_df[ticker]
+            prices = prices_df[ticker]
             support_levels = support_function(prices, num_levels=num_levels)
 
             # Create a row for this ticker
