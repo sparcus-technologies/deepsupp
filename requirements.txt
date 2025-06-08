@@ -5,3 +5,5 @@ curl_cffi
 hmmlearn
 statsmodels
 torch
+matplotlib
+seaborn
