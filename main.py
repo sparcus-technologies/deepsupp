@@ -1,9 +1,8 @@
 import os
 
-import pandas as pd
-
 from src.data.data_fetcher import fetch_and_save_historical_prices
 from src.data.make_date_filtered_dataset import make_date_filtered_dataset
+from src.evaluation.performance_evaluator import run_evaluation
 from src.figures.visualize_support_levels import visualize_support_levels
 from src.predict_support_levels import predict_support_levels
 from src.support_methods.deepsupp import deepsupp
@@ -61,6 +60,7 @@ def make_figures():
 
 if __name__ == "__main__":
     # make_dataset()
-    # make_date_filtered_dataset(date_period_months=6)
-    # make_support_levels()
-    make_figures()
+    make_date_filtered_dataset(date_period_months=12)
+    make_support_levels()
+    # run_evaluation()
+    # make_figures()

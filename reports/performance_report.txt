@@ -1,0 +1,105 @@
+==========================================================================================
+SUPPORT LEVEL DETECTION METHODS - ENHANCED PERFORMANCE EVALUATION
+==========================================================================================
+
+ENHANCED METHODOLOGY:
+Six fundamental financial metrics used as ground truth:
+1. Support Accuracy: How often prices bounce off predicted support levels
+2. Price Proximity: How close support levels are to actual price percentiles
+3. Volume Confirmation: Whether high volume accompanies support bounces
+4. Market Regime Sensitivity: Performance across bull/bear/sideways markets
+5. Support Hold Duration: How long support levels remain valid
+6. False Breakout Rate: Recovery rate after brief support breaks
+
+DETAILED RANKING (Best to Worst):
+--------------------------------------------------
+1. HMM
+   Overall Score: 0.596 (±0.060)
+   ├─ Support Accuracy: 0.587
+   ├─ Price Proximity: 0.896
+   ├─ Volume Confirmation: 0.355
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.761
+   └─ Breakout Recovery: 0.800
+   Tickers Evaluated: 502
+
+2. FRACTAL
+   Overall Score: 0.579 (±0.045)
+   ├─ Support Accuracy: 0.870
+   ├─ Price Proximity: 0.469
+   ├─ Volume Confirmation: 0.357
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.748
+   └─ Breakout Recovery: 0.800
+   Tickers Evaluated: 502
+
+3. LOCAL_MINIMA
+   Overall Score: 0.578 (±0.053)
+   ├─ Support Accuracy: 0.670
+   ├─ Price Proximity: 0.687
+   ├─ Volume Confirmation: 0.363
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.773
+   └─ Breakout Recovery: 0.800
+   Tickers Evaluated: 502
+
+4. DEEPSUPP
+   Overall Score: 0.552 (±0.073)
+   ├─ Support Accuracy: 0.538
+   ├─ Price Proximity: 0.774
+   ├─ Volume Confirmation: 0.348
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.725
+   └─ Breakout Recovery: 0.798
+   Tickers Evaluated: 502
+
+5. FIBONACCI
+   Overall Score: 0.505 (±0.061)
+   ├─ Support Accuracy: 0.725
+   ├─ Price Proximity: 0.284
+   ├─ Volume Confirmation: 0.355
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.742
+   └─ Breakout Recovery: 0.800
+   Tickers Evaluated: 502
+
+6. MOVING_AVERAGE
+   Overall Score: 0.499 (±0.068)
+   ├─ Support Accuracy: 0.478
+   ├─ Price Proximity: 0.605
+   ├─ Volume Confirmation: 0.345
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.701
+   └─ Breakout Recovery: 0.797
+   Tickers Evaluated: 502
+
+7. QUANTILE_REGRESSION
+   Overall Score: 0.382 (±0.162)
+   ├─ Support Accuracy: 0.310
+   ├─ Price Proximity: 0.307
+   ├─ Volume Confirmation: 0.315
+   ├─ Market Regime Sensitivity: 0.296
+   ├─ Support Duration: 0.662
+   └─ Breakout Recovery: 0.724
+   Tickers Evaluated: 502
+
+CATEGORY LEADERS:
+------------------------------
+🎯 Support Detection: FRACTAL (0.870)
+🎯 Price Alignment: HMM (0.896)
+🎯 Volume Analysis: LOCAL_MINIMA (0.363)
+🎯 Market Adaptability: HMM (0.296)
+🎯 Duration Stability: LOCAL_MINIMA (0.773)
+🎯 Breakout Handling: HMM (0.800)
+
+PERFORMANCE INSIGHTS:
+------------------------------
+🏆 BEST PERFORMER: HMM
+
+TRADING RECOMMENDATIONS:
+------------------------------
+1. HMM: Perfect for position trading and long-term holds
+2. FRACTAL: Perfect for position trading and long-term holds
+3. LOCAL_MINIMA: Perfect for position trading and long-term holds
+
+==========================================================================================
