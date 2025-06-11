@@ -16,7 +16,7 @@ class DataManager:
 
     def find_price_file(self):
         """Find historical price file with flexible naming"""
-        possible_names = ["sp500_filtered_prices.csv"]
+        possible_names = ["sp500_date_filtered_prices.csv"]
 
         for name in possible_names:
             file_path = os.path.join(self.datasets_dir, name)

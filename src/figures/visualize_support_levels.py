@@ -53,7 +53,9 @@ def visualize_support_levels(ticker="MMM", fig_dir="figures"):
         )
 
     # Load historical price data
-    historical_prices = load_historical_prices("datasets/sp500_filtered_prices.csv")
+    historical_prices = load_historical_prices(
+        "datasets/sp500_date_filtered_prices.csv"
+    )
 
     # Filter for the selected ticker and recent data
     if ticker in historical_prices.columns:

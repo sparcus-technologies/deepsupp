@@ -6,7 +6,7 @@ import pandas as pd
 
 def predict_support_levels(
     support_functions,
-    prices_csv="datasets/sp500_filtered_prices.csv",
+    prices_csv="datasets/sp500_date_filtered_prices.csv",
     output_dir="predictions",
 ):
     """

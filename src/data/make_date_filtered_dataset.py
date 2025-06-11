@@ -16,4 +16,4 @@ def make_date_filtered_dataset(
         start_date = end_date - pd.DateOffset(months=date_period_months)
         prices_df = prices_df[prices_df["Date"] >= start_date]
 
-    prices_df.to_csv("datasets/sp500_filtered_prices.csv", index=False)
+    prices_df.to_csv("datasets/sp500_date_filtered_prices.csv", index=False)
